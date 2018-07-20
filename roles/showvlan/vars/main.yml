@@ -1,3 +1,0 @@
----
-# vars file for showvlan
-template: '{{ role_path }}/fsm_template/alaxala_handson_show_vlan.template'
