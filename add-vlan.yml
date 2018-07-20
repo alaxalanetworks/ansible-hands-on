@@ -1,0 +1,33 @@
+- name: configure vlan interface and attach to port
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: configure "vlan <vid>"
+      ax_config:
+        lines:
+          - vlan "{{ vid }}"
+        provider: "{{ cli }}"
+
+    - name: configure "interface vlan <vid>"
+      ax_config:
+        lines:
+          - ip address "{{ ipaddr }}" "{{ netmask }}"
+        parents: "interface vlan {{ vid }}"
+        provider: "{{ cli }}"
+
+    - name: configure "switchport mode trunk" to port
+      ax_config:
+        lines:
+          - switchport mode trunk
+        parents: "interface gigabitethernet {{ port }}"
+        provider: "{{ cli }}"
+
+    - name: configure "switchport trunk allowed vlan add <vid>" to port
+      ax_config:
+        lines:
+          - switchport trunk allowed vlan add "{{ vid }}" 
+        parents: "interface gigabitethernet {{ port }}"
+        provider: "{{ cli }}" 
+        save_when: modified

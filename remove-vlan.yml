@@ -1,0 +1,27 @@
+- name: remove vlan
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+    - name: remove "switchport trunk allowed vlan add <vid>" from port
+      ax_config:
+        lines:
+          - switchport trunk allowed vlan remove "{{ vid }}"
+        parents: "interface gigabitethernet {{ port }}"
+        provider: "{{ cli }}"
+
+    - name: remove "switchport mode trunk"
+      ax_config:
+        lines:
+          - no switchport mode trunk
+        parents: "interface gigabitethernet {{ port }}"
+        provider: "{{ cli }}"
+
+    - name: remove "interface vlan <vid>"
+      ax_config:
+        lines:
+          - no interface vlan "{{ vid }}"
+        provider: "{{ cli }}"
+        save_when: modified

@@ -1,0 +1,14 @@
+Value SYSNAME (\S+)
+Value SYSCONTACT (\S+)
+Value SYSLOCATE (\S+)
+Value MACHINEID (\S+\.\S+\.\S+)
+Value BOOTDATE (\d+/\d+/\d+ \d\d:\d\d:\d\d)
+Value BOOTREASON (\S+)
+
+Start
+  ^\s+Name         :\s+${SYSNAME}
+  ^\s+Contact      :\s+${SYSCONTACT}
+  ^\s+Locate       :\s+${SYSLOCATE}
+  ^\s+Machine ID   :\s+${MACHINEID}
+  ^\s+Boot Date    :\s+${BOOTDATE}
+  ^\s+Boot reason  :\s+${BOOTREASON} -> Record

@@ -1,0 +1,7 @@
+- name: vlan create and check
+  hosts: all
+  gather_facts: no
+  connection: local
+  roles:
+    - addvlan
+    - checkvlan

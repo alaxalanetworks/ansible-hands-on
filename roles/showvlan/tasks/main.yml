@@ -1,0 +1,22 @@
+- name: show vlan detail
+  ax_command:
+    commands:
+      - show vlan detail
+    provider: "{{ cli }}"
+  register: result
+
+- name: print show vlan detail information
+  debug:
+    var: result.stdout[0]
+
+- name: parse show vlan detail
+  set_fact:
+    vlan_parsed: '{{ result.stdout[0] | parse_cli_textfsm( template ) }}'
+
+- name: print parsed show vlan detail information
+  debug:
+    var: vlan_parsed
+
+- name: print role's path
+  debug:
+    var: role_path

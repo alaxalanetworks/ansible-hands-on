@@ -1,0 +1,15 @@
+- name: backup configuration
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: backup configuration with ax_config
+      ax_config:
+        backup: yes
+        provider:
+          host: "{{ inventory_hostname }}"
+          username: alaxala
+          password: alaxala
+          authorize: yes
+          auth_pass: alaxala

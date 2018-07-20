@@ -1,0 +1,10 @@
+# Comment out for Ansible Tower
+# Please delete '#' below for ansible-playbook command
+#cli:
+#  host: "{{ inventory_hostname }}"
+#  username: alaxala
+#  password: alaxala
+#  authorize: yes
+#  auth_pass: alaxala
+#
+#vid: '1000'

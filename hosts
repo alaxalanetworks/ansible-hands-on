@@ -1,0 +1,5 @@
+# Comment out for Ansible Tower
+# Please delete '#' below for ansible-playbook command
+#[all]
+#192.168.137.?1
+#192.168.137.?2

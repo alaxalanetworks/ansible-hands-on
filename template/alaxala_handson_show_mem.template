@@ -1,0 +1,8 @@
+Value PHYMEM (\S+)
+Value USED (\S+)
+Value FREE (\S+)
+
+Start
+  ^\s+Physical memory =\s+${PHYMEM}KB\S+
+  ^\s+Used     memory =\s+${USED}KB\S+
+  ^\s+Free     memory =\s+${FREE}KB\S+

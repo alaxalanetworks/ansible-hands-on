@@ -1,0 +1,3 @@
+---
+# vars file for checkvlan
+template: '{{ role_path }}/textfsm_template/alaxala_handson_show_vlan.template'

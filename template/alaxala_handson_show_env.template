@@ -1,0 +1,6 @@
+Value MAINDEGREE (\d+)
+Value WARNLEVEL (\S+)
+
+Start
+  ^\s+Main          :\s+${MAINDEGREE}\s+degrees
+  ^\s+Warning level :\s+${WARNLEVEL}
