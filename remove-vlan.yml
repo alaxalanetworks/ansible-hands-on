@@ -8,7 +8,7 @@
     - name: remove "switchport trunk allowed vlan add <vid>" from port
       ax_config:
         lines:
-          - switchport trunk allowed vlan remove "{{ vid }}"
+          - switchport trunk allowed vlan remove {{ vid }}
         parents: "interface gigabitethernet {{ port }}"
         provider: "{{ cli }}"
 
@@ -22,6 +22,6 @@
     - name: remove "interface vlan <vid>"
       ax_config:
         lines:
-          - no interface vlan "{{ vid }}"
+          - no interface vlan {{ vid }}
         provider: "{{ cli }}"
         save_when: modified

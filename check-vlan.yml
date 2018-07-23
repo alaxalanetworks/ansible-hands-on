@@ -16,7 +16,7 @@
 
     - name: print show vlan detail information
       debug:
-        var: result.stdout[0]
+        var: result.stdout_lines
 
     - name: parse show vlan detail
       set_fact:
