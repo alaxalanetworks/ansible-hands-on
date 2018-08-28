@@ -1,12 +1,10 @@
-# Comment out for Ansible Tower
-# Please delete '#' below for ansible-playbook command
-#port: '0/5'
-#ipaddr: '20.0.0.1'
-#netmask: '255.255.255.0'
-#ping_ip_addr: '20.0.0.2'
+port: '0/5'
+ipaddr: '20.0.0.1'
+netmask: '255.255.255.0'
+ping_ip_addr: '20.0.0.2'
 
-#aclname: 'FILTER-ICMP'
+aclname: 'FILTER-ICMP'
 
-#aclentry:
-#  - 1000 deny icmp any any
-#  - 2000 permit ip any any
+aclentry:
+  - 1000 deny icmp any any
+  - 2000 permit ip any any

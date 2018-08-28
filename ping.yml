@@ -1,5 +1,5 @@
 - name: check if vlan had configured correctly using ping
-  hosts: 
+  hosts: x.x.x.x
   gather_facts: no
   connection: local
 

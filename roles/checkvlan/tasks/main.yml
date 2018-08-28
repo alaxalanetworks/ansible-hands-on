@@ -11,7 +11,7 @@
 
 - name: parse show vlan detail
   set_fact:
-    vlan_parsed: '{{ result.stdout[0] | parse_cli_textfsm( template ) }}'
+    vlan_parsed: '{{ result.stdout[0] | parse_cli_textfsm( textfsm_template ) }}'
 
 - name: print parsed show vlan detail information
   debug:

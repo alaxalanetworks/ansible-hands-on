@@ -4,7 +4,7 @@
   connection: local
   
   vars:
-    template: 'template/alaxala_handson_show_vlan.template'
+    textfsm_template: 'textfsm_template/alaxala_handson_show_vlan.template'
 
   tasks:
     - name: show vlan detail
@@ -20,7 +20,7 @@
 
     - name: parse show vlan detail
       set_fact:
-        vlan_parsed: '{{ result.stdout[0] | parse_cli_textfsm( template ) }}'
+        vlan_parsed: '{{ result.stdout[0] | parse_cli_textfsm( textfsm_template ) }}'
 
     - name: print parsed show vlan detail information
       debug:
