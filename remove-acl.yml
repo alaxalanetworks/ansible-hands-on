@@ -8,7 +8,7 @@
       ax_config:
         lines:
           - no ip access-group {{ aclname }} in
-        parents: "interface vlan 1000"
+        parents: "interface vlan {{ vid }}"
         provider: "{{ cli }}"
 
     - name: remove "ip access-list extended <aclname>"

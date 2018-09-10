@@ -5,16 +5,10 @@
 
   tasks:
 
-    - name: remove "switchport trunk allowed vlan add <vid>" from port
+    - name: remove vlan configuration from port
       ax_config:
         lines:
           - switchport trunk allowed vlan remove {{ vid }}
-        parents: "interface gigabitethernet {{ port }}"
-        provider: "{{ cli }}"
-
-    - name: remove "switchport mode trunk"
-      ax_config:
-        lines:
           - no switchport mode trunk
         parents: "interface gigabitethernet {{ port }}"
         provider: "{{ cli }}"

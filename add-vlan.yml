@@ -17,16 +17,10 @@
         parents: "interface vlan {{ vid }}"
         provider: "{{ cli }}"
 
-    - name: configure "switchport mode trunk" to port
+    - name: vlan configuration to port
       ax_config:
         lines:
           - switchport mode trunk
-        parents: "interface gigabitethernet {{ port }}"
-        provider: "{{ cli }}"
-
-    - name: configure "switchport trunk allowed vlan add <vid>" to port
-      ax_config:
-        lines:
           - switchport trunk allowed vlan add {{ vid }} 
         parents: "interface gigabitethernet {{ port }}"
         provider: "{{ cli }}" 

@@ -1,7 +1,9 @@
+# Port which adds VLAN
 port: '0/5'
-ipaddr: '20.0.0.1'
+
+# IP address and netmask for host y.y.y.y
+ipaddr: '20.0.0.2'
 netmask: '255.255.255.0'
-ping_ip_addr: '20.0.0.2'
 
 aclname: 'FILTER-ICMP'
 

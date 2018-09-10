@@ -1,0 +1,15 @@
+# Port which adds VLAN
+port: '0/5'
+
+# IP address and netmask for host x.x.x.x
+ipaddr: '20.0.0.1'
+netmask: '255.255.255.0'
+
+# Ping to host y.y.y.y
+ping_ip_addr: '20.0.0.2'
+
+aclname: 'FILTER-ICMP'
+
+aclentry:
+  - 1000 deny icmp any any
+  - 2000 permit ip any any
