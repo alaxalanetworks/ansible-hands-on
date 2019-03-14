@@ -1,7 +1,7 @@
 - name: vlan create and check
-  hosts: all
+  hosts: L2
   gather_facts: no
-  connection: local
+  connection: network_cli
   roles:
     - addvlan
     - checkvlan

@@ -2,7 +2,6 @@
   ax_command:
     commands:
       - show vlan detail
-    provider: "{{ cli }}"
   register: result
 
 - name: print show vlan detail information

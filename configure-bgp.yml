@@ -1,0 +1,23 @@
+- name: configure router bgp
+  hosts: L3
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: configure router-id
+      ax_config:
+        lines:
+          - bgp router-id {{ bgp.routerid }}
+        parents: router bgp {{ bgp.as }}
+
+    - name: configure bgp neighbors
+      ax_config:
+        lines:
+          - neighbor {{ item }} remote-as {{ bgp.as }}
+          - neighbor {{ item }} update-source vlan 10
+        parents: router bgp {{ bgp.as }}
+      with_items: "{{ bgp.neighbors }}"
+
+    - name: configuration save
+      ax_config:
+        save_when: modified

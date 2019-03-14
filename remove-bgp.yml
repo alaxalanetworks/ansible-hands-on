@@ -1,0 +1,15 @@
+- name: remove router bgp
+  hosts: L3
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: remove router bgp
+      ax_config:
+        lines:
+          - no router bgp {{ bgp.as }}
+        save_when: modified
+
+    - name: save
+      ax_config:
+        save_when: modified

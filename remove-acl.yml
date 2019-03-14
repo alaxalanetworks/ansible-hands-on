@@ -1,7 +1,7 @@
 - name: remove configured ACL
   hosts: all
   gather_facts: no
-  connection: local
+  connection: network_cli
 
   tasks:
     - name: remove from vlan interface
@@ -9,11 +9,9 @@
         lines:
           - no ip access-group {{ aclname }} in
         parents: "interface vlan {{ vid }}"
-        provider: "{{ cli }}"
 
     - name: remove "ip access-list extended <aclname>"
       ax_config:
         lines:
           - no ip access-list extended {{ aclname }}
-        provider: "{{ cli }}"
         save_when: modified

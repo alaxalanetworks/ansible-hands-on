@@ -1,0 +1,2 @@
+# VLAN ID which adds to specified port
+vid: '1000'

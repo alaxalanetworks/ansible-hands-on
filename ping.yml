@@ -1,13 +1,12 @@
 - name: check if vlan had configured correctly using ping
   hosts: x.x.x.x
   gather_facts: no
-  connection: local
+  connection: network_cli
 
   tasks:
     - name: ping
       ax_command:
         commands:
           - ping {{ ping_ip_addr }} count 1
-        provider: "{{ cli }}"
       register: result
       failed_when: "' 100.0% packet loss' in result.stdout[0]"

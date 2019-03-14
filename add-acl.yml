@@ -1,19 +1,17 @@
 - name: configure ACL to vlan interface
-  hosts: all
+  hosts: L2
   gather_facts: no
-  connection: local
+  connection: network_cli
 
   tasks:
     - name: configure "ip access-list extended <acl name>"
       ax_config:
         lines: "{{ aclentry }}"
         parents: "ip access-list extended {{ aclname }}"
-        provider: "{{ cli }}"
 
     - name: attach to interface vlan
       ax_config:
         lines:
           - ip access-group {{ aclname }} in
         parents: "interface vlan {{ vid }}"
-        provider: "{{ cli }}"
         save_when: modified

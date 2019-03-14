@@ -1,15 +1,17 @@
 - name: backup configuration
   hosts: all
   gather_facts: no
-  connection: local
+  connection: network_cli
+
+  vars:
+    ansible_network_os: ax
+    ansible_user: alaxala
+    ansible_password: alaxala
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_become_pass: alaxala
 
   tasks:
     - name: backup configuration with ax_config
       ax_config:
         backup: yes
-        provider:
-          host: "{{ inventory_hostname }}"
-          username: alaxala
-          password: alaxala
-          authorize: yes
-          auth_pass: alaxala

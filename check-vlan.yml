@@ -1,7 +1,7 @@
 - name: check if specified vlan had configured correctly
-  hosts: all
+  hosts: L2
   gather_facts: no
-  connection: local
+  connection: network_cli
   
   vars:
     textfsm_template: 'textfsm_template/alaxala_handson_show_vlan.template'
@@ -11,7 +11,6 @@
       ax_command:
         commands:
           - show vlan detail
-        provider: "{{ cli }}"
       register: result
 
     - name: print show vlan detail information

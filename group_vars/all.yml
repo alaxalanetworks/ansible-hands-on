@@ -1,10 +1,7 @@
-# connect information for using AX modules
-cli:
-  host: "{{ inventory_hostname }}"
-  username: alaxala
-  password: alaxala
-  authorize: yes
-  auth_pass: alaxala
-
-# VLAN ID which adds to specified port
-vid: '1000'
+# connection settings
+ansible_network_os: ax
+ansible_user: alaxala
+ansible_password: alaxala
+ansible_become: yes
+ansible_become_method: enable
+ansible_become_pass: alaxala
