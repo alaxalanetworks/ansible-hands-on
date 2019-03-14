@@ -4,17 +4,18 @@
   connection: network_cli
 
   tasks:
-    - name: configure router-id
+    - name: configure router base config
       ax_config:
         lines:
           - bgp router-id {{ bgp.routerid }}
+          - redistribute connected
         parents: router bgp {{ bgp.as }}
 
     - name: configure bgp neighbors
       ax_config:
         lines:
           - neighbor {{ item }} remote-as {{ bgp.as }}
-          - neighbor {{ item }} update-source vlan 10
+          - neighbor {{ item }} update-source vlan 100
         parents: router bgp {{ bgp.as }}
       with_items: "{{ bgp.neighbors }}"
 
