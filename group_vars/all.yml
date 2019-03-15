@@ -1,3 +1,4 @@
+# Commented for Ansible Tower/AWX. Please uncomment for CUI ansible-playbook.
 # connection settings
 #ansible_network_os: ax
 #ansible_user: alaxala
